@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t quangphan1912/dp-alpine:latest .'
+        sh 'docker build -t quangphan1912/dp-alpine2:latest .'
       }
     }
     stage('Login') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push quangphan1912/dp-alpine:latest'
+        sh 'docker push quangphan1912/dp-alpine2:latest'
       }
     }
   }
