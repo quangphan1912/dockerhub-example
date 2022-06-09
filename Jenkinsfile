@@ -1,3 +1,4 @@
+node{
 pipeline {
   agent { label 'linux' }
   options {
@@ -28,4 +29,5 @@ pipeline {
       sh 'docker logout'
     }
   }
+}
 }
