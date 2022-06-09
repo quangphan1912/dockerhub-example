@@ -6,8 +6,6 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('docker')
   }
-  def branch = readFile('branch').trim()
-  if (branch == master) {
     stages {
     stage('Build') {
       steps {
@@ -25,8 +23,6 @@ pipeline {
       }
     }
   }
-  }
-   
   post {
     always {
       sh 'docker logout'
