@@ -6,7 +6,9 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('docker')
   }
-   stages {
+  def branch = readFile('branch').trim()
+  if (branch == master) {
+    stages {
     stage('Build') {
       steps {
         sh 'docker build -t quangphan1912/dp-alpine:latest .'
@@ -23,6 +25,8 @@ pipeline {
       }
     }
   }
+  }
+   
   post {
     always {
       sh 'docker logout'
