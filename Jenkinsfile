@@ -29,15 +29,15 @@ pipeline {
     }
   }
   post {
-//     always {
-//       sh 'docker logout'
-//     }
     always {
-            echo "ALWAYS THE SUN!!!"
-            junit '**/nonexisting_to_make_this_fail/*.xml'
-        }
-        failure {
-            echo "WE FAILED MISERABLY! I won't be shown because junit step failed above"
-        }
+      sh 'docker logout'
+    }
+//     always {
+//             echo "ALWAYS THE SUN!!!"
+//             junit '**/nonexisting_to_make_this_fail/*.xml'
+//         }
+//         failure {
+//             echo "WE FAILED MISERABLY! I won't be shown because junit step failed above"
+//         }
   }
 }
