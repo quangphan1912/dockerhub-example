@@ -7,6 +7,11 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('docker')
   }
     stages {
+      stage('check') {
+      steps {
+        sh 'pwd'
+      }
+    }
     stage('Build') {
       steps {
         sh 'docker build -t quangphan1912/dp-alpine:latest .'
