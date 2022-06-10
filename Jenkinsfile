@@ -9,8 +9,6 @@ pipeline {
     stages {
       stage('check') {
       steps {
-        sh 'sudo chmod 666 /var/run/docker.sock'
-        sh 'Hitachi@123'
         sh 'pwd'
       }
     }
