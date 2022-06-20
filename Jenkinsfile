@@ -27,17 +27,18 @@ pipeline {
         sh 'docker push quangphan1912/dp-alpine:latest'
       }
     }
+    stage('Deploying App to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deploymentservice.yml", kubeconfigId: "kubernetes")
+        }
+      }
+    }
   }
   post {
     always {
       sh 'docker logout'
     }
-//     always {
-//             echo "ALWAYS THE SUN!!!"
-//             junit '**/nonexisting_to_make_this_fail/*.xml'
-//         }
-//         failure {
-//             echo "WE FAILED MISERABLY! I won't be shown because junit step failed above"
-//         }
+
   }
 }
